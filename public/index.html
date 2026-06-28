@@ -422,7 +422,7 @@ socket.on('presence', ({ userId, online }) => {
 socket.on('avatarUpdate', ({ userId, avatar }) => {
   const u = users.find(u => u.id === userId);
   if (u) u.avatar = avatar;
-  if (currentUser?.id === userId) document.getElementById('my-avatar').textContent = avatar;
+  if (me?.id === userId) document.getElementById('my-avatar').textContent = avatar;
   renderConvList();
   if (currentConv) updateChatHeader();
 });
@@ -832,12 +832,12 @@ AVATAR_EMOJIS.forEach(em => {
     await fetch('/api/avatar', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ userId: currentUser.id, avatar: em }),
+      body: JSON.stringify({ userId: me.id, avatar: em }),
     });
-    currentUser.avatar = em;
+    me.avatar = em;
     avatarBtn.textContent = em;
     // update local users list and re-render conv list
-    const u = users.find(u => u.id === currentUser.id);
+    const u = users.find(u => u.id === me.id);
     if (u) u.avatar = em;
     renderConvList();
   };
