@@ -1,9 +1,9 @@
-# fly.toml app configuration file generated for familychat on 2026-06-28T13:36:46Z
+# fly.toml app configuration file generated for chatounet on 2026-06-28T14:17:54Z
 #
 # See https://fly.io/docs/reference/configuration/ for information about how to use this file.
 #
 
-app = 'familychat'
+app = 'chatounet'
 primary_region = 'ams'
 
 [build]
