@@ -130,6 +130,12 @@ app.use(express.json());
 app.use(express.static(path.join(__dirname, 'public')));
 
 // ── REST ─────────────────────────────────────────────────────────────────────
+app.get('/api/debug', (req, res) => res.json({
+  DATA_DIR: process.env.DATA_DIR,
+  DB_PATH,
+  users: db.prepare('SELECT * FROM users').all(),
+}));
+
 app.get('/api/init', (req, res) => res.json(getInitData()));
 
 app.get('/api/messages/:convId', (req, res) => res.json(getMessages(req.params.convId)));
