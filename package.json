@@ -1,5 +1,5 @@
 {
-  "name": "familychat",
+  "name": "chatounet",
   "version": "1.0.0",
   "description": "Application de messagerie familiale",
   "main": "server.js",
